@@ -17,6 +17,20 @@ barba.init({
             afterOnce() {
                 console.log('afterOnce');
             },
+        },
+        {
+            name: 'fade',
+            to: {
+                namespace: ['fade'],
+            },
+            leave() {
+                // with css plugin, this will not run
+                console.log('leave');
+            },
+            enter() {
+                // with css plugin, this will not run
+                console.log('enter');   
+            },
         }
     ]
 })
