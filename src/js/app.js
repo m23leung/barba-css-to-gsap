@@ -3,6 +3,14 @@ import barbaCss from '@barba/css';
 
 barba.use(barbaCss)
 
+const body = document.querySelector('body')
+
+// Runs before every transition
+barba.hooks.before((data) => {
+    const background = data.current.container.dataset.background;
+    body.style.setProperty('--page-background', background);
+})
+
 barba.init({
     transitions: [
         {
