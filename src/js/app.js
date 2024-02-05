@@ -37,6 +37,21 @@ barba.init({
             },
             enter() {
                 // with css plugin, this will not run
+                console.log('enter');
+            },
+        },
+        {
+            name: 'clip',
+            sync: true,
+            to: {
+                namespace: ['clip'],
+            },
+            leave() {
+                // with css plugin, this will not run
+                console.log('leave');
+            },
+            enter() {
+                // with css plugin, this will not run
                 console.log('enter');   
             },
         }
