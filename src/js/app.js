@@ -54,6 +54,20 @@ barba.init({
                 // with css plugin, this will not run
                 console.log('enter');   
             },
+        },
+        {
+            name: 'with-cover',
+            to: {
+                namespace: ['with-cover'],
+            },
+            leave() {
+                // with css plugin, this will not run
+                console.log('leave');
+            },
+            enter() {
+                // with css plugin, this will not run
+                console.log('enter');
+            },
         }
     ]
 })
