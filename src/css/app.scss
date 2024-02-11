@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Work+Sans:wght@300&display=swap');
 @import '~reset-css/reset.css';
-@import 'home.scss';
-@import 'fade.scss';
-@import 'clip.scss';
-@import 'with-cover.scss';
 
 :root {
   --easing: cubic-bezier(0.5, 0.7, 0.4, 1);
@@ -81,6 +77,10 @@ header {
   &.is-cover {
     background-color: #e66f7f;
   }
+
+  &.is-halvo {
+    background-color: #74a9bd;
+  }
 }
 
 .content {
@@ -89,7 +89,7 @@ header {
   transform: translateY(0);
 }
 
-.transition {
+div.transition {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -106,4 +106,53 @@ header {
     font-size: 40px;
     color: #202020;
   }
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin-right: auto;
+}
+
+ul.transition {
+  display: flex;
+  position: absolute;
+  z-index: 10;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+ul.transition li.blue {
+  transform: scaleY(0);
+  background: lightblue;
+  width: 20%;
+}
+
+ul.transition li.red {
+  transform: scaleY(0);
+  background: red;
+  width: 20%;
+}
+
+ul.transition li.green {
+  transform: scaleY(0);
+  background: green;
+  width: 20%;
+}
+
+ul.transition li.orange {
+  transform: scaleY(0);
+  background: orange;
+  width: 20%;
+}
+
+ul.transition li.yellow {
+  transform: scaleY(0);
+  background: yellow;
+  width: 20%;
 }

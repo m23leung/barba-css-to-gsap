@@ -35,7 +35,8 @@
   },
   "dependencies": {
     "@barba/core": "^2.8.0",
-    "@barba/css": "^2.1.15",
+    "gsap": "^3.12.5",
+    "react-scripts": "^5.0.1",
     "reset-css": "^5.0.1"
   }
 }
