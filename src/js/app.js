@@ -5,6 +5,8 @@ import {    animationEnter,
             clipEnter,
             slideEnter,
             slideLeave,
+            slideEnterBlock,
+            slideLeaveBlock,
             animationLeave,
             clipLeave,
             staggerLeave,
@@ -23,6 +25,7 @@ barba.hooks.before((data) => {
 })
 
 barba.init({
+    preventRunning: true,
     transitions: [
      {
         name: 'halvo',
@@ -40,6 +43,7 @@ barba.init({
         to: {
             namespace: ['home'],
          },
+
         leave: ({current}) => slideLeave(current.container, "horizontal"),
         enter({next}) {
             console.log("HOME NEXT");
@@ -58,17 +62,14 @@ barba.init({
     },
     {
         name: 'clip',
-        // sync: true,
         to: {
             namespace: ['clip'],
          },
-        // once({next}) {
-        //     console.log("CLIP ONCE")
-        //     animationEnter(next.container)
-        // },
+        once({next}) {
+            clipEnter(next.container)
+        },
         leave: ({current}) => clipLeave(current.container),
         enter({next}) {
-            console.log('CLIP - entering');
             clipEnter(next.container)
         },
     },
@@ -77,110 +78,13 @@ barba.init({
         to: {
             namespace: ['with-cover'],
          },
-        leave: ({current}) => slideLeave(current.container),
-        // enter({next}) {
-        //     console.log('WITH-COVER - entering');
-        //     slideEnter(next.container)
-        // },
+        once({next}) {
+            slideEnterBlock(next.container)
+        },
+        leave: ({current}) => slideLeaveBlock(current.container),
+        enter({next}) {
+            slideEnterBlock(next.container)
+         },
     }, 
     ]
 });
-
-// barba.init({
-//     transitions: [
-//         {
-//             name: 'home',
-//             sync: true,
-//             to: {
-//                 namespace: ['home'],
-//             },
-//             once() {},
-//             leave() {
-//                 console.log('home leave');
-//             },
-//             enter() {
-//                 console.log('home enter');
-//             },
-//         },
-//         {
-//             name: 'fade',
-//             from: { namespace: ['home'] },
-//             to: {
-//                 namespace: ['fade'],
-//             },
-//             // once(data) {
-//             //     console.log("FADE ONCE");
-//             //     const done = this.async();
-//             //     let next = data.next.container;
-//             //     let gradient = getGradient(data.next.namespace);
-
-//             //     // On page load, set the body background color
-//             //     gsap.set('body', { background: gradient });                
-//             // },
-//             leave(data) {
-//                 // with css plugin, this will not run
-//                 console.log('fade leave');
-//                 const done = this.async();
-//                 let current = data.current.container;
-//                 console.log("CURRENT: ", current);
-//                 const content = current.querySelector('.content');
-//                 tlLeave.fromTo(content, { opacity: 1 }, { opacity: 0, onComplete: done });
-//             },
-//             enter(data) {
-//                 // with css plugin, this will not run
-//                 console.log('fade enter');
-//                 const done = this.async();
-//                 let next = data.next.container;
-//                 let gradient = getGradient(data.next.namespace);
-//                 console.log("GRADIENT: ", gradient);
-//                 const content = next.querySelector('.content');
-
-
-//                 // tlEnter.to('body', { background: gradient});
-//                 const body = document.querySelector('body')
-//                 body.style.setProperty('--page-background', gradient);
-//             },
-//         },
-//         {
-//             name: 'clip',
-//             sync: true,
-//             to: {
-//                 namespace: ['clip'],
-//             },
-//             leave() {
-//                 // with css plugin, this will not run
-//                 console.log('leave');
-//             },
-//             enter() {
-//                 // with css plugin, this will not run
-//                 console.log('enter');   
-//             },
-//         },
-//         {
-//             name: 'with-cover',
-//             to: {
-//                 namespace: ['with-cover'],
-//             },
-//             leave() {
-//                 // with css plugin, this will not run
-//                 console.log('leave');
-//             },
-//             enter() {
-//                 // with css plugin, this will not run
-//                 console.log('enter');
-//             },
-//         }
-//     ]
-// })
-
-// // changing gradient on showcase
-// const getGradient = (name) => {
-//     switch(name) {
-//         case "fade":
-//             return "#CC98C6";
-//         case "clip":
-//             return "#161636";
-//         case "with-cover":
-//             return "#E66F7F";  
-//     }
-// }

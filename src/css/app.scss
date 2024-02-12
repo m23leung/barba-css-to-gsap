@@ -115,7 +115,7 @@ ul {
   margin-right: auto;
 }
 
-ul.transition {
+ul.transition-lines {
   display: flex;
   position: absolute;
   z-index: 10;
@@ -127,31 +127,31 @@ ul.transition {
   pointer-events: none;
 }
 
-ul.transition li.blue {
+ul.transition-lines li.blue {
   transform: scaleY(0);
   background: lightblue;
   width: 20%;
 }
 
-ul.transition li.red {
+ul.transition-lines li.red {
   transform: scaleY(0);
   background: red;
   width: 20%;
 }
 
-ul.transition li.green {
+ul.transition-lines li.green {
   transform: scaleY(0);
   background: green;
   width: 20%;
 }
 
-ul.transition li.orange {
+ul.transition-lines li.orange {
   transform: scaleY(0);
   background: orange;
   width: 20%;
 }
 
-ul.transition li.yellow {
+ul.transition-lines li.yellow {
   transform: scaleY(0);
   background: yellow;
   width: 20%;

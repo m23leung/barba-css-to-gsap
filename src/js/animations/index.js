@@ -7,4 +7,7 @@ export { default as clipLeave } from './clipLeave';
 export { default as slideEnter } from './slideEnter';
 export { default as slideLeave } from './slideLeave';
 
+export { default as slideEnterBlock } from './slideEnterBlock';
+export { default as slideLeaveBlock } from './slideLeaveBlock';
+
 export { default as staggerLeave } from './staggerLeave';
