@@ -25,6 +25,15 @@ barba.hooks.before((data) => {
 
 barba.init({
     preventRunning: true,
+    views: [
+        {
+            namespace: 'home',
+            beforeEnter(data) {
+                // For initializing things specific on page load ( Enable plugins, setting listeners etc )
+                console.log('beforeEnter home: ', data);
+            }
+        }
+    ],
     transitions: [
      {
         name: 'halvo',
