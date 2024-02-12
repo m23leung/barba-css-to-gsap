@@ -1,7 +1,6 @@
 import gsap from "gsap";
 
 const slideEnter = (container) => {
-    console.log("slideEnter - container: ", container);
     const transition = container.querySelector('.transition');
 
     const tlEnter = gsap.timeline({
@@ -10,8 +9,8 @@ const slideEnter = (container) => {
 
     return (
         tlEnter.fromTo(transition,
-        { y: "0%" },
-        { y: "100%", duration: 1, clearProps: 'all' },
+                { y: "0%" },
+                { y: "100%", duration: 1, clearProps: 'all' },
         )
     );
 }

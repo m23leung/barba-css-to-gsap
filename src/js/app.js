@@ -20,7 +20,6 @@ barba.hooks.before((data) => {
     console.log("RUN BEFORE EVERY TRANSITION");
 
     const background = data.current.container.dataset.background;
-    console.log('background: ', background);
     body.style.setProperty('--page-background', background);
 })
 
@@ -46,7 +45,6 @@ barba.init({
 
         leave: ({current}) => slideLeave(current.container, "horizontal"),
         enter({next}) {
-            console.log("HOME NEXT");
             slideEnter(next.container, "horizontal");
         },
     },       

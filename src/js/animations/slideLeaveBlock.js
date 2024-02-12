@@ -1,7 +1,6 @@
 import gsap from "gsap";
 
 const slideLeave = (container) => {
-    console.log('slideLeave');
     const transition = container.querySelector('.transition');
 
     return (gsap.fromTo(transition, 
