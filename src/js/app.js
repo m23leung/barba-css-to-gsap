@@ -32,6 +32,10 @@ barba.init({
         to: {
             namespace: ['halvo'],
          },
+        once({current}) {
+            const done = this.async();
+            staggerLeave(current.container, done);
+        },
         leave({current}) {
             const done = this.async();
             staggerLeave(current.container, done);
